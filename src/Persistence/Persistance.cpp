@@ -39,3 +39,48 @@ Persistence::Persistence(std::string newPath) : path(std::move(newPath)) {
   }
 #endif
 }
+
+Persistence::~Persistence() {
+  TRACE_FUNCTION();
+#ifdef SERIALIZE_DATA
+  std::ofstream file(path, std::ios::out | std::ios::binary);
+  if (!file) {
+    std::cerr << "Failed to open the file: " << path << std::endl;
+    return;
+  }
+
+  file.write(reinterpret_cast<char*>(&camera), sizeof(camera));
+
+  for (auto& [key, chunk]: chunks) {
+    TRACE_SCOPE("Persistence::~Persistence::saveChunk");
+    glm::ivec2 worldPosition = key;
+    file.write(reinterpret_cast<char*>(&worldPosition[0]), sizeof(glm::ivec2));
+    file.write(reinterpret_cast<char*>(&chunk->data[0]), sizeof(Chunk::data));
+  }
+#endif
+}
+
+void Persistence::commitChunk(const Ref<Chunk>& chunk) {
+  TRACE_FUNCTION();
+#ifdef SERIALIZE_DATA
+  chunks[chunk->getPosition()] = chunk;
+#endif
+}
+
+Ref<Chunk> Persistence::getChunk(glm::ivec2 position) const {
+  TRACE_FUNCTION();
+  if (!chunks.contains(position)) {
+    return nullptr;
+  }
+  return chunks.at(position);
+}
+
+void Persistence::commitCamera(const Camera& newCamera) {
+#ifdef SERIALIZE_DATA
+  camera = newCamera;
+#endif
+}
+
+const Camera& Persistence::getCamera() const {
+  return camera;
+}
