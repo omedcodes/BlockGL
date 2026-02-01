@@ -56,3 +56,55 @@ void Window::onResized(GLFWwindow *, int32_t width, int32_t height) {
 
   app.onResized(width, height);
 }
+
+void Window::onMouseButtonEvent(GLFWwindow *, int32_t button, int32_t action, int32_t mods) {
+  TRACE_FUNCTION();
+  Application::instance().onMouseButtonEvent(button, action, mods);
+}
+
+void Window::onCursorPosition(GLFWwindow *, double x, double y) {
+  TRACE_FUNCTION();
+  Application::instance().onCursorPositionEvent(x, y);
+}
+
+void Window::onRefreshWindow(GLFWwindow *) {
+  TRACE_FUNCTION();
+  Application::instance().onRefreshWindow();
+}
+
+void Window::setupCallbacks() {
+  TRACE_FUNCTION();
+  glfwSetKeyCallback(window, onKeyEvent);
+  glfwSetMouseButtonCallback(window, onMouseButtonEvent);
+  glfwSetCursorPosCallback(window, onCursorPosition);
+  glfwSetFramebufferSizeCallback(window, onResized);
+
+#ifndef BUILD_TYPE_DIST
+  glEnable(GL_DEBUG_OUTPUT);
+  glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+  glDebugMessageCallback(onOpenGlMessage, nullptr);
+  glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
+#endif
+  glfwSwapInterval(1);
+
+  glfwSetWindowRefreshCallback(window, onRefreshWindow);
+  glfwSetErrorCallback(Window::onWindowError);
+}
+
+bool Window::setupGlad() {
+  TRACE_FUNCTION();
+  if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
+    std::cerr << "Failed to initialize OpenGL context" << std::endl;
+    return false;
+  }
+
+  glEnable(GL_DEPTH_TEST);
+  glEnable(GL_CULL_FACE);
+
+  return true;
+}
+
+void Window::lockMouse() {
+  glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+}
+
