@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Scene/Scene.h"
-#include "../glCraft.h"
+#include "../glBlocks.h"
 #include "Gui.h"
 #include "Window.h"
 
@@ -27,4 +27,22 @@ private:
   void updateAndRender();
 
   friend Window;
+  
+public:
+  Application();
+  ~Application();
+
+  static Application &instance() { return *instancePtr; };
+
+  void setScene(const Ref<Scene> &newScene) { scene = newScene; };
+  int32_t getWindowWidth() { return window.getWindowWidth(); }
+  int32_t getWindowHeight() { return window.getWindowHeight(); }
+  Window &getWindow() { return window; };
+  int32_t run();
+
+  Application(const Application &) = delete;
+  Application(Application &) = delete;
+  Application(Application &&) noexcept = delete;
+  Application &operator=(Application &) = delete;
+  Application &operator=(Application &&) noexcept = delete;
 };
