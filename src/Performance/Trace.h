@@ -34,3 +34,17 @@ public:
         ~TraceTimer();
     };
 };
+
+#ifdef ENABLE_TRACING
+#define CONCAT_(prefix, suffix) prefix##suffix
+#define CONCAT(prefix, suffix) CONCAT_(prefix, suffix)
+#define START_TRACE(traceFile) Trace::start(traceFile)
+#define END_TRACE() Trace::end()
+#define TRACE_SCOPE(name) Trace::TraceTimer CONCAT(traceTimer, __COUNTER__)(name)
+#define TRACE_FUNCTION() TRACE_SCOPE(__FUNCSIG__)
+#else
+#define START_TRACE(name)
+#define END_TRACE()
+#define TRACE_SCOPE(name)
+#define TRACE_FUNCTION()
+#endif
