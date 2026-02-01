@@ -108,3 +108,49 @@ void Window::lockMouse() {
   glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 }
 
+void Window::unlockMouse() {
+  glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+}
+
+void Window::pollEvents() {
+  TRACE_FUNCTION();
+  glfwPollEvents();
+}
+
+bool Window::shouldRender() {
+  return windowWidth > 0 && windowHeight > 0;
+}
+
+void Window::beginFrame() {
+  TRACE_FUNCTION();
+  assert(framebufferStack->empty());
+  resetFrame();  // reset the default framebuffer
+
+  static Ref<Framebuffer> framebuffer = nullptr;
+  if (framebuffer == nullptr || framebuffer->getWidth() != windowWidth || framebuffer->getHeight() != windowHeight) {
+    framebuffer = std::make_shared<Framebuffer>(windowWidth, windowHeight, true, 1);
+  }
+
+  framebufferStack->push(framebuffer);
+  resetFrame();  // reset the level one framebuffer
+}
+
+void Window::resetFrame() {
+  TRACE_FUNCTION();
+  glViewport(0, 0, windowWidth, windowHeight);
+  glClearColor(clearColor.x * clearColor.w, clearColor.y * clearColor.w, clearColor.z * clearColor.w, clearColor.w);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+}
+
+void Window::finalizeFrame() {
+  TRACE_FUNCTION();
+  assert(framebufferStack->size() == 1);
+
+  ColorRenderPass::renderTexture(framebufferStack->pop()->getColorAttachment(0));
+}
+
+void Window::swapBuffers() {
+  TRACE_FUNCTION();
+  framebufferStack->clearIntermediateTextureReferences();
+  glfwSwapBuffers(window);
+}
