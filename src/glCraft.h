@@ -1,6 +1,6 @@
 #pragma once
 
-// this is to force the formatter to keep the order, because glad must be included first
+// this is to force the formatter to keep the order glad must be included first
 #if 1
 #include <glad/glad.h>
 #endif
@@ -16,7 +16,7 @@
 #include <glm/gtc/integer.hpp>
 #include <glm/gtx/transform.hpp>
 
-// std libraries
+// stdlibs
 #include <algorithm>
 #include <array>
 #include <cassert>
