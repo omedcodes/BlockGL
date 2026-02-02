@@ -22,10 +22,10 @@ class Player {
 
   float gravityConstant = DefaultGravity;
   float jumpHeightMultiplier = 1;
-  bool canJump = false;
+  bool canJump = true;
 
   bool isRunning = false;
-  bool isSurvivalMovement = false;
+  bool isSurvivalMovement = true; // player is by default survival
   bool shouldResetMouse = true;
 
 public:
