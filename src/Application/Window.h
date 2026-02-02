@@ -1,12 +1,12 @@
 #pragma once
 
 #include "../Rendering/FramebufferStack.h"
-#include "../glBlocks.h"
+#include "../glCraft.h"
 
 class Window {
   static Window *instancePtr;
 
-  const char *name = "glBlocks";
+  const char *name = "glCraft";
   int32_t windowWidth = 1200;
   int32_t windowHeight = 900;
   GLFWwindow *window = nullptr;
@@ -23,7 +23,7 @@ class Window {
   static void onRefreshWindow(GLFWwindow *window);
 
   static void onWindowError(int32_t errorCode, const char *description);
-  static void onOpenGLMessage(GLenum source,
+  static void onOpenGlMessage(GLenum source,
                               GLenum type,
                               GLuint id,
                               GLenum severity,
@@ -35,7 +35,7 @@ public:
   Window();
   ~Window();
 
-  static Window &instance() { return *instancePtr };
+  static Window &instance() { return *instancePtr; }
 
   [[nodiscard]] inline int32_t getWindowWidth() const { return windowWidth; }
   void setWindowWidth(int32_t width) { windowWidth = width; }
@@ -43,7 +43,7 @@ public:
   [[nodiscard]] inline int32_t getWindowHeight() const { return windowHeight; }
   void setWindowHeight(int32_t height) { windowHeight = height; }
 
-  [[nodiscard]] inline GLFWwindow *getContext() { return window; }
+  [[nodiscard]] inline GLFWwindow *getContext() { return window; };
   [[nodiscard]] inline Ref<FramebufferStack> getFramebufferStack() { return framebufferStack; };
 
   bool isValid() { return window != nullptr; };

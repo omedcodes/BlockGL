@@ -7,7 +7,7 @@
 #include "../Rendering/Texture.h"
 #include "../Rendering/VertexArray.h"
 #include "../World/World.h"
-#include "../glBlocks.h"
+#include "../glCraft.h"
 #include "BlockOutline.h"
 #include "Effects/ChromaticAberrationEffect.h"
 #include "Effects/CrosshairEffect.h"

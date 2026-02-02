@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../glBlocks.h"
+#include "../glCraft.h"
 
 struct Image {
   uint32_t width, height;

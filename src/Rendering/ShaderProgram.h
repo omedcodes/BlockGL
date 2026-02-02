@@ -1,6 +1,6 @@
 #pragma once
 
-#include "./glBlocks.h"
+#include "../glCraft.h"
 #include "Shader.h"
 #include "Texture.h"
 

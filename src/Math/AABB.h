@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../glBlocks.h"
+#include "../glCraft.h"
 
 struct AABB {
   glm::vec3 minPoint;

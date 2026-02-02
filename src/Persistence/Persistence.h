@@ -3,7 +3,7 @@
 #include "../Scene/Camera.h"
 #include "../Util/Util.h"
 #include "../World/Chunk.h"
-#include "../glBlocks.h"
+#include "../glCraft.h"
 
 class Persistence {
   std::string path;

@@ -3,7 +3,7 @@
 #include "../../AssetManager/AssetManager.h"
 #include "../../Rendering/FrameBuffer.h"
 #include "../../Rendering/ShaderProgram.h"
-#include "../../glBlocks.h"
+#include "../../glCraft.h"
 
 class PostProcessEffect {
 protected:

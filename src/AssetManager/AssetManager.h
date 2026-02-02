@@ -2,7 +2,7 @@
 
 #include "../Rendering/Shader.h"
 #include "../Rendering/ShaderProgram.h"
-#include "../glBlocks.h"
+#include "../glCraft.h"
 #include "AssetRegistry.h"
 #include "CubeMapRegistry.h"
 #include "ImageRegistry.h"
@@ -41,10 +41,10 @@ public:
   Ref<const Texture> loadTexture(const std::string &name) { return textureRegistry.get(name); };
 
 
-  // the expected input format: width;height;
+  /// the expected input format: width;height;
   Ref<const Texture> loadTextureArray(const std::string &name) { return textureArrayRegistry.get(name); };
 
-  // the expected input format: right;left;top;bottom;front;back
+  /// the expected input format: right;left;top;bottom;front;back
   Ref<const Texture> loadCubeMap(const std::string &name) { return cubeMapRegistry.get(name); };
   Ref<const Shader> loadShader(const std::string &name) { return shaderRegistry.get(name); };
   Ref<const ShaderProgram> loadShaderProgram(const std::string &name) { return shaderProgramRegistry.get(name); };

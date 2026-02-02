@@ -2,7 +2,7 @@
 
 #include "../Rendering/ShaderProgram.h"
 #include "../Rendering/VertexArray.h"
-#include "../glBlocks.h"
+#include "../glCraft.h"
 
 class Skybox {
   glm::mat4 transform{1};

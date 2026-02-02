@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Scene/Scene.h"
-#include "../glBlocks.h"
+#include "../glCraft.h"
 #include "Gui.h"
 #include "Window.h"
 
@@ -27,7 +27,7 @@ private:
   void updateAndRender();
 
   friend Window;
-  
+
 public:
   Application();
   ~Application();

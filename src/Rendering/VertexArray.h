@@ -2,9 +2,8 @@
 
 #include <vector>
 
-#include "../glBlocks.h"
+#include "../glCraft.h"
 #include "Buffer.h"
-
 
 struct VertexAttribute {
   enum ComponentType {
@@ -28,7 +27,6 @@ struct VertexAttribute {
         vertexSize(0),
         offset(offset) {}
 };
-
 
 class VertexArray {
   uint32_t id = 0;

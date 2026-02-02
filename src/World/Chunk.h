@@ -7,7 +7,7 @@
 #include "../Rendering/BlockVertex.h"
 #include "../Rendering/ShaderProgram.h"
 #include "../Rendering/VertexArray.h"
-#include "../glBlocks.h"
+#include "../glCraft.h"
 #include "BlockData.h"
 
 class Persistence;

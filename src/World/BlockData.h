@@ -71,7 +71,7 @@ struct BlockData {
   }
 
   BlockType type;
-  Bloc  kClass blockClass;
+  BlockClass blockClass;
 
   static BlockClass typeToClass(BlockType type) {
     if (type == BlockType::air) {

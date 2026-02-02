@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Performance/Trace.h"
-#include "../glBlocks.h"
+#include "../glCraft.h"
 #include "type_traits"
 
 class Buffer {
