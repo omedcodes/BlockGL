@@ -21,7 +21,7 @@ class Player {
   float mouseSensitivity = .5;
 
   float gravityConstant = DefaultGravity;
-  float jumpHeightMultiplier = 1;
+  float jumpHeightMultiplier = 1.35;
   bool canJump = true;
 
   bool isRunning = false;
