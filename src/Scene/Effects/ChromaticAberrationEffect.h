@@ -15,7 +15,7 @@ public:
             enabled) {}
 
   void renderGui() override {
-#ifdef USE_IMGUI
+/*
     ImGui::Checkbox("Enable chromatic aberration effect", &enabled);
 
     if (enabled) {
@@ -24,7 +24,7 @@ public:
       ImGui::SliderFloat("Aberration G Offset", &aberrationGOffset, -0.01f, 0.01f);
       ImGui::SliderFloat("Aberration B Offset", &aberrationBOffset, -0.01f, 0.01f);
     }
-#endif
+*/
   }
 
   void update() override {

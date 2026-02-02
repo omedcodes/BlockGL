@@ -18,7 +18,7 @@ public:
   }
 
   void renderGui() override {
-#ifdef USE_IMGUI
+/*
     ImGui::Checkbox("Enable vignette effect", &enabled);
 
     if (enabled) {
@@ -29,6 +29,6 @@ public:
 
       ImGui::SliderFloat("Vignette start", &vignetteStart, 0.0f, 3.0f);
     }
-#endif
+*/
   }
 };

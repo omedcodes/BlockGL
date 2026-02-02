@@ -12,8 +12,8 @@ public:
   void update() override {}
 
   void renderGui() override {
-#ifdef USE_IMGUI
+/*
     ImGui::Checkbox("Enable invert effect", &enabled);
-#endif
+*/
   }
 };

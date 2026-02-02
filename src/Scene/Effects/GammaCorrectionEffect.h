@@ -16,11 +16,11 @@ public:
   }
 
   void renderGui() override {
-#ifdef USE_IMGUI
+/*
     ImGui::Checkbox("Enable gamma correction", &enabled);
     if (enabled) {
       ImGui::SliderFloat("Gamma correction power", &power, 0.5f, 3.0f);
     }
-#endif
+*/
   }
 };

@@ -15,14 +15,14 @@ public:
             enabled) {}
 
   void renderGui() override {
-#ifdef USE_IMGUI
+/*
     ImGui::Checkbox("Enable crosshair", &enabled);
     if (enabled) {
       ImGui::SliderFloat("Crosshair size", &crosshairSize, 0.01f, 1.0f);
       ImGui::SliderFloat("Crosshair vertical width", &crosshairVerticalWidth, 0.01f, 1.0f);
       ImGui::SliderFloat("Crosshair horizontal width", &crosshairHorizontalWidth, 0.01f, 1.0f);
     }
-#endif
+*/
   }
 
   void update() override {

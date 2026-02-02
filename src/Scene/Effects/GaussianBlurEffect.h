@@ -21,12 +21,12 @@ public:
   void update() override { shader = getBlurShader(stDev); }
 
   void renderGui() override {
-#ifdef USE_IMGUI
+/*
     ImGui::Checkbox("Enable gaussian blur effect", &enabled);
     if (enabled) {
       ImGui::SliderInt("Gaussian Blur StDev", &stDev, 0, 5);
     }
-#endif
+*/
   }
 
 private:
