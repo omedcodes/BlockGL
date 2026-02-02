@@ -1,6 +1,6 @@
 #pragma once
 
-#include "./glBlocks.h"
+#include "../glBlocks.h"
 
 class Shader {
   uint32_t id;
