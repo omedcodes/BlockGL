@@ -50,7 +50,8 @@ fabric.properties
 out
 gen
 /third_party
-/.clang_format
+.clang-format
 .gitmodules
 CMakeLists.txt
 /build
+/archive

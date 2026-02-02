@@ -3,19 +3,24 @@
 #include "PostProcessEffect.h"
 
 class GammaCorrectionEffect : public PostProcessEffect {
-  float power = 0.85;
+  float power = 0.85f;
 
 public:
   GammaCorrectionEffect(bool enabled)
-      : PostProcessEffect(AssetManager::instance().loadShaderProgram("assets/shaders/gamma_correction"), enabled){};
+      : PostProcessEffect(
+            AssetManager::instance().loadShaderProgram("assets/shaders/gamma_correction"),
+            enabled) {}
 
-  void update() override { shader->setFloat("power", power); }
+  void update() override {
+    shader->setFloat("power", power);
+  }
 
   void renderGui() override {
+#ifdef USE_IMGUI
     ImGui::Checkbox("Enable gamma correction", &enabled);
-
     if (enabled) {
       ImGui::SliderFloat("Gamma correction power", &power, 0.5f, 3.0f);
     }
+#endif
   }
 };

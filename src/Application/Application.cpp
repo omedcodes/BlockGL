@@ -1,5 +1,4 @@
 #include "Application.h"
-
 #include "../Performance/Trace.h"
 
 Application* Application::instancePtr = nullptr;
@@ -42,9 +41,7 @@ void Application::updateAndRender() {
     scene->render();
     window.finalizeFrame();
 
-    gui.beginFrame();
     scene->renderGui();
-    gui.finalizeFrame();
 
     window.swapBuffers();
   }

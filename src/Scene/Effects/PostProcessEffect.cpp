@@ -1,21 +1,18 @@
 #include "PostProcessEffect.h"
-
 #include "../../Application/Window.h"
 #include "../../Rendering/ColorRenderPass.h"
 
 PostProcessEffect::PostProcessEffect(const Ref<const ShaderProgram>& shader, bool enabled)
-    : shader(shader),
-      enabled(enabled) {}
+    : shader(shader), enabled(enabled) {}
 
 void PostProcessEffect::render() {
-  if (!enabled) {
-    return;
-  }
+  if (!enabled) return;
 
   Window& window = Window::instance();
   int32_t width = window.getWindowWidth();
   int32_t height = window.getWindowHeight();
-  if (framebuffer == nullptr || framebuffer->getWidth() != width || framebuffer->getHeight() != height) {
+
+  if (!framebuffer || framebuffer->getWidth() != width || framebuffer->getHeight() != height) {
     framebuffer = std::make_shared<Framebuffer>(width, height, false, 1);
   }
 

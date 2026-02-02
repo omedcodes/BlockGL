@@ -2,7 +2,6 @@
 
 #include "../Scene/Scene.h"
 #include "../glCraft.h"
-#include "Gui.h"
 #include "Window.h"
 
 class Application {
@@ -11,7 +10,6 @@ private:
   using Clock = std::chrono::steady_clock;
 
   Window window;
-  Gui gui;
   AssetManager assetManager;
   Ref<Scene> scene;
   TimePoint lastTick = Clock::now();

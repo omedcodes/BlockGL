@@ -4,24 +4,27 @@
 
 class ChromaticAberrationEffect : public PostProcessEffect {
   float aberrationStart = 1.5f;
-  float aberrationROffset = 0.005;
-  float aberrationGOffset = 0.01;
-  float aberrationBOffset = -0.005;
+  float aberrationROffset = 0.005f;
+  float aberrationGOffset = 0.01f;
+  float aberrationBOffset = -0.005f;
 
 public:
   ChromaticAberrationEffect(bool enabled)
-      : PostProcessEffect(AssetManager::instance().loadShaderProgram("assets/shaders/chromatic_aberration_effect"),
-                          enabled) {}
+      : PostProcessEffect(
+            AssetManager::instance().loadShaderProgram("assets/shaders/chromatic_aberration_effect"),
+            enabled) {}
 
   void renderGui() override {
+#ifdef USE_IMGUI
     ImGui::Checkbox("Enable chromatic aberration effect", &enabled);
 
     if (enabled) {
-      ImGui::SliderFloat("Aberration start", &aberrationStart, 0.5, 3);
-      ImGui::SliderFloat("Aberration R Offset", &aberrationROffset, -0.01, 0.01);
-      ImGui::SliderFloat("Aberration G Offset", &aberrationGOffset, -0.01, 0.01);
-      ImGui::SliderFloat("Aberration B Offset", &aberrationBOffset, -0.01, 0.01);
+      ImGui::SliderFloat("Aberration start", &aberrationStart, 0.5f, 3.0f);
+      ImGui::SliderFloat("Aberration R Offset", &aberrationROffset, -0.01f, 0.01f);
+      ImGui::SliderFloat("Aberration G Offset", &aberrationGOffset, -0.01f, 0.01f);
+      ImGui::SliderFloat("Aberration B Offset", &aberrationBOffset, -0.01f, 0.01f);
     }
+#endif
   }
 
   void update() override {

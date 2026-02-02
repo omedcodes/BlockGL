@@ -80,6 +80,7 @@ void Scene::render() {
 }
 
 void Scene::renderMenu() {
+    #ifdef USE_IMGUI
   TRACE_FUNCTION();
   if (ImGui::Begin("Menu")) {
     ImGui::Text("Frame Time: %fms", deltaTime * 1000);
@@ -203,9 +204,11 @@ void Scene::renderMenu() {
   }
 
   ImGui::End();
+    #endif
 }
 
 void Scene::renderIntermediateTextures() {
+  #ifdef USE_IMGUI
   TRACE_FUNCTION();
   if (ImGui::Begin("Intermediate Textures")) {
     for (const auto& texture: Window::instance().getFramebufferStack()->getIntermediateTextures()) {
@@ -214,6 +217,7 @@ void Scene::renderIntermediateTextures() {
     }
   }
   ImGui::End();
+  #endif
 }
 
 void Scene::renderGui() {
