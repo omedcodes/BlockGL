@@ -6,7 +6,7 @@
 #include "../Rendering/ShaderProgram.h"
 #include "../Rendering/Texture.h"
 #include "../Scene/Behaviors/WorldBehavior.h"
-#include "../glCraft.h"
+#include "../glBlocks.h"
 #include "Chunk.h"
 #include "WorldGenerator.h"
 
