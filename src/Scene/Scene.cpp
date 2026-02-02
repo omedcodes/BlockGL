@@ -92,7 +92,7 @@ void Scene::renderMenu() {
     ImGui::Spacing();
     ImGui::Spacing();
 
-    bool isSurvival = player.getIsSurvivalMovement();
+    bool isSurvival = player.getIsSurvivalMode();
     if (ImGui::Checkbox("Enable \"physics\"", &isSurvival)) {
       player.setSurvivalMovement(isSurvival);
     }

@@ -25,7 +25,7 @@ void Player::update(float deltaTime) {
 
   glm::vec3 position = camera.getPosition();
 
-  if (isSurvivalMovement) {
+  if (survivalMode) {
     std::array<glm::vec3, 3> axes = {{{1, 0, 0}, {0, 1, 0}, {0, 0, 1}}};
 
     for (const auto& axis: axes) {
@@ -66,7 +66,7 @@ void Player::onKeyEvent(int32_t key, int32_t, int32_t action, int32_t) {
   } else if (key == GLFW_KEY_D || key == GLFW_KEY_RIGHT) {
     camera.setIsMovingRight(isButtonPressed);
   } else if (key == GLFW_KEY_SPACE) {
-    if (isSurvivalMovement) {
+    if (survivalMode) {
       camera.setIsMovingUp(false);
       if (canJump && isButtonPressed) {
         gravity = glm::vec3(0, getJumpSpeed(), 0);
@@ -75,7 +75,7 @@ void Player::onKeyEvent(int32_t key, int32_t, int32_t action, int32_t) {
       camera.setIsMovingUp(isButtonPressed);
     }
   } else if (key == GLFW_KEY_LEFT_SHIFT || key == GLFW_KEY_RIGHT_SHIFT) {
-    if (isSurvivalMovement) {
+    if (survivalMode) {
       camera.setIsMovingDown(false);
     } else {
       camera.setIsMovingDown(isButtonPressed);

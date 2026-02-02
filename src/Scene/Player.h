@@ -25,7 +25,7 @@ class Player {
   bool canJump = true;
 
   bool isRunning = false;
-  bool isSurvivalMovement = true; // player is by default survival
+  bool survivalMode = true; // player is by default survival
   bool shouldResetMouse = true;
 
 public:
@@ -53,10 +53,10 @@ public:
 
   void update(float deltaTime);
 
-  [[nodiscard]] bool getIsSurvivalMovement() const { return isSurvivalMovement; };
+  [[nodiscard]] bool getIsSurvivalMode() const { return survivalMode; };
   void setSurvivalMovement(bool isSurvival) {
     gravity = glm::vec3(0);
-    isSurvivalMovement = isSurvival;
+    survivalMode = isSurvival;
   };
 
   [[nodiscard]] const Camera& getCamera() const { return camera; };
