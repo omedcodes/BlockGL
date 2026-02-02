@@ -53,3 +53,4 @@ gen
 /.clang_format
 .gitmodules
 CMakeLists.txt
+/build
