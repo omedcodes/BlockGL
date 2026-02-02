@@ -9,11 +9,8 @@
 #include "../World/World.h"
 #include "../glCraft.h"
 #include "BlockOutline.h"
-#include "Effects/ChromaticAberrationEffect.h"
 #include "Effects/CrosshairEffect.h"
 #include "Effects/GammaCorrectionEffect.h"
-#include "Effects/GaussianBlurEffect.h"
-#include "Effects/InvertEffect.h"
 #include "Effects/PostProcessEffect.h"
 #include "Effects/VignetteEffect.h"
 #include "Player.h"
@@ -32,9 +29,9 @@ class Scene {
   float deltaTime = 1.0f;
   BlockOutline outline{std::make_shared<CubeMesh>()};
   std::vector<Ref<PostProcessEffect>> postProcessingEffects = {
-     std::make_shared<CrosshairEffect>(true),       std::make_shared<ChromaticAberrationEffect>(false),
-     std::make_shared<InvertEffect>(false),         std::make_shared<VignetteEffect>(true),
-     std::make_shared<GammaCorrectionEffect>(true), std::make_shared<GaussianBlurEffect>(false)};
+     std::make_shared<CrosshairEffect>(true), std::make_shared<VignetteEffect>(true),
+     std::make_shared<GammaCorrectionEffect>(true),
+    };
 
   bool isMenuOpen = false;
   bool showIntermediateTextures = false;
