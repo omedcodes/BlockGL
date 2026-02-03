@@ -17,15 +17,15 @@ class Player {
 
   glm::vec3 gravity{0};
 
-  float movementSpeedMultiplier = 1;
+  float playerSpeedMovement = 1.14395f;
   float mouseSensitivity = .5;
 
   float gravityConstant = DefaultGravity;
-  float jumpHeightMultiplier = 1.35;
+  float playerJumpPower = 1.3;
   bool canJump = true;
 
   bool isRunning = false;
-  bool survivalMode = true; // player is by default survival
+  bool survivalMode = true; // i decided to set the player by default to survival
   bool shouldResetMouse = true;
 
 public:
@@ -61,18 +61,18 @@ public:
 
   [[nodiscard]] const Camera& getCamera() const { return camera; };
 
-  [[nodiscard]] float getJumpHeightMultiplier() const { return jumpHeightMultiplier; };
-  void setJumpHeightMultiplier(float multiplier) { jumpHeightMultiplier = multiplier; };
+  [[nodiscard]] float getJumpHeightMultiplier() const { return playerJumpPower; };
+  void setJumpHeightMultiplier(float multiplier) { playerJumpPower = multiplier; };
 
   [[nodiscard]] float getGravityConstant() const { return gravityConstant; };
   void setGravityConstant(float constant) { gravityConstant = constant; };
 
-  [[nodiscard]] float getMovementSpeedMultiplier() const { return movementSpeedMultiplier; };
-  void setMovementSpeedMultiplier(float movementSpeed) { movementSpeedMultiplier = movementSpeed; }
+  [[nodiscard]] float getMovementSpeedMultiplier() const { return playerSpeedMovement; };
+  void setMovementSpeedMultiplier(float movementSpeed) { playerSpeedMovement = movementSpeed; }
 
-  [[nodiscard]] float getJumpSpeed() const { return jumpHeightMultiplier * gravityConstant / 4.5f; };
-  [[nodiscard]] float getWalkingSpeed() const { return movementSpeedMultiplier * 4.317f; };
-  [[nodiscard]] float getRunningSpeed() const { return movementSpeedMultiplier * 5.612f; };
+  [[nodiscard]] float getJumpSpeed() const { return playerJumpPower * gravityConstant / 4.5f; };
+  [[nodiscard]] float getWalkingSpeed() const { return playerSpeedMovement * 4.317f; };
+  [[nodiscard]] float getRunningSpeed() const { return playerSpeedMovement * 5.612f; };
 
   [[nodiscard]] BlockData::BlockType getBlockToPlace() const { return blockToPlace; };
   void setBlockToPlace(BlockData::BlockType block) { blockToPlace = block; };
