@@ -8,7 +8,7 @@ int main(int argc, char **argv) {
   END_TRACE();
 
   START_TRACE("scene-creation.json");
-  std::string savePath = argc > 1 ? argv[1] : "MapData.glb";
+  std::string savePath = argc > 1 ? argv[1] : "MapData.bgl";
   app->setScene(std::make_shared<Scene>(savePath));
   END_TRACE();
 
