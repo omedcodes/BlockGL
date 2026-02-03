@@ -234,7 +234,7 @@ void Scene::renderGui() {
 void Scene::onResized(int32_t width, int32_t height) {
   TRACE_FUNCTION();
   float aspectRatio = width == 0 || height == 0 ? 0 : static_cast<float>(width) / static_cast<float>(height);
-  projectionMatrix = glm::perspective<float>(glm::half_pi<float>(), aspectRatio, zNear, zFar);
+  projectionMatrix = glm::perspective<float>(glm::radians(100.0f), aspectRatio, zNear, zFar);
 }
 
 void Scene::onKeyEvent(int32_t key, int32_t scancode, int32_t action, int32_t mode) {
