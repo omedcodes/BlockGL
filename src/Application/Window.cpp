@@ -160,6 +160,12 @@ void Window::swapBuffers() {
   glfwSwapBuffers(window);
 }
 
+glm::dvec2 Window::getCursorPosition() {
+  glm::dvec2 pos;
+  glfwGetCursorPos(window, &pos.x, &pos.y);
+  return pos;
+}
+
 void GLAPIENTRY Window::onOpenGlMessage(GLenum source,
                                         GLenum type,
                                         GLuint id,
@@ -183,9 +189,6 @@ void GLAPIENTRY Window::onOpenGlMessage(GLenum source,
       break;
     case GL_DEBUG_SOURCE_SHADER_COMPILER:
       std::cerr << "Source: Shader Compiler";
-      break;
-    case GL_DEBUG_SOURCE_INCLUDE:
-      std::cerr << "Source: Includes";
       break;
     case GL_DEBUG_SOURCE_APPLICATION:
       std::cerr << "Source: Application";
@@ -249,10 +252,4 @@ void GLAPIENTRY Window::onOpenGlMessage(GLenum source,
   }
   std::cerr << std::endl;
   std::cerr << std::endl;
-}
-
-glm::dvec2 Window::getCursorPosition() {
-  glm::dvec2 pos;
-  glfwGetCursorPos(window, &pos.x, &pos.y);
-  return pos;
 }
