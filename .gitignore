@@ -52,6 +52,5 @@ gen
 /third_party
 .clang-format
 .gitmodules
-CMakeLists.txt
 /build
 /archive
