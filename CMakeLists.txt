@@ -45,7 +45,7 @@ include_directories(lodepng include/lodepng)
 
 find_package(OpenAL REQUIRED)
 find_package(SndFile REQUIRED)
-target_link_libraries(BlockGL PRIVATE glfw glm glad lodepng OpenAL::OpenAL sndfile::sndfile)
+target_link_libraries(BlockGL PRIVATE glfw glm glad lodepng)
 
 add_custom_command(
         TARGET BlockGL PRE_BUILD COMMAND
