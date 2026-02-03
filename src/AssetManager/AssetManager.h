@@ -1,8 +1,8 @@
 #pragma once
 
+#include "../BlockGL.h"
 #include "../Rendering/Shader.h"
 #include "../Rendering/ShaderProgram.h"
-#include "../glCraft.h"
 #include "AssetRegistry.h"
 #include "CubeMapRegistry.h"
 #include "ImageRegistry.h"

@@ -1,7 +1,7 @@
 #pragma once
 
+#include "../BlockGL.h"
 #include "../Scene/Scene.h"
-#include "../glCraft.h"
 #include "Window.h"
 
 class Application {

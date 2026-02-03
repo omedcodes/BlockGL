@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../glCraft.h"
+#include "../BlockGL.h"
 #include "FrameBuffer.h"
 
 class FramebufferStack {
@@ -9,7 +9,7 @@ class FramebufferStack {
   bool keepIntermediateTextures = false;
 
 public:
-  void push(const Ref<Framebuffer>& framebuffer);
+  void push(const Ref<Framebuffer> &framebuffer);
   [[nodiscard]] Ref<Framebuffer> peek() const;
   Ref<Framebuffer> pop();
 

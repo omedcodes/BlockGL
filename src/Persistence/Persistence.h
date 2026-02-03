@@ -1,9 +1,9 @@
 #pragma once
 
+#include "../BlockGL.h"
 #include "../Scene/Camera.h"
 #include "../Util/Util.h"
 #include "../World/Chunk.h"
-#include "../glCraft.h"
 
 class Persistence {
   std::string path;
@@ -14,9 +14,9 @@ public:
   explicit Persistence(std::string path);
   ~Persistence();
 
-  void commitChunk(const Ref<Chunk>& chunk);
+  void commitChunk(const Ref<Chunk> &chunk);
   [[nodiscard]] Ref<Chunk> getChunk(glm::ivec2 position) const;
 
-  void commitCamera(const Camera& newCamera);
-  [[nodiscard]] const Camera& getCamera() const;
+  void commitCamera(const Camera &newCamera);
+  [[nodiscard]] const Camera &getCamera() const;
 };

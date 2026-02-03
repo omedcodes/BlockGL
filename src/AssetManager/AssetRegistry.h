@@ -1,7 +1,7 @@
 #pragma once
 
+#include "../BlockGL.h"
 #include "../Rendering/ShaderProgram.h"
-#include "../glCraft.h"
 
 template<typename T>
 class AssetRegistry {

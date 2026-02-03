@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "../glCraft.h"
+#include "../BlockGL.h"
 #include "Buffer.h"
 
 struct VertexAttribute {

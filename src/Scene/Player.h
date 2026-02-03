@@ -1,8 +1,8 @@
 #pragma once
 
+#include "../BlockGL.h"
 #include "../Physics/MovementSimulation.h"
 #include "../World/World.h"
-#include "../glCraft.h"
 #include "Camera.h"
 
 class Player {
@@ -25,7 +25,7 @@ class Player {
   bool canJump = true;
 
   bool isRunning = false;
-  bool survivalMode = true; // i decided to set the player by default to survival
+  bool survivalMode = true;  // i decided to set the player by default to survival
   bool shouldResetMouse = true;
 
 public:
@@ -48,7 +48,7 @@ public:
   static constexpr float DefaultGravity = 46.62f;
   static constexpr float Reach = 4.5f;
 
-  explicit Player(const Ref<World>& world, const Ref<Persistence>& persistence);
+  explicit Player(const Ref<World> &world, const Ref<Persistence> &persistence);
   ~Player();
 
   void update(float deltaTime);
@@ -59,7 +59,7 @@ public:
     survivalMode = isSurvival;
   };
 
-  [[nodiscard]] const Camera& getCamera() const { return camera; };
+  [[nodiscard]] const Camera &getCamera() const { return camera; };
 
   [[nodiscard]] float getJumpHeightMultiplier() const { return playerJumpPower; };
   void setJumpHeightMultiplier(float multiplier) { playerJumpPower = multiplier; };

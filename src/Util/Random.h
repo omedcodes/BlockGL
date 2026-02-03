@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../glCraft.h"
+#include "../BlockGL.h"
 
 class Random {
   std::mt19937 randomEngine;

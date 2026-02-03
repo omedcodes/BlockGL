@@ -2,21 +2,21 @@
 
 #include <utility>
 
-#include "../glCraft.h"
+#include "../BlockGL.h"
 
 
 class Trace {
 private:
-  static Trace* instancePtr;
+  static Trace *instancePtr;
 
   std::ofstream traceFile;
   uint64_t eventCount = 0;
 
-  Trace(const std::string& traceFile);
+  Trace(const std::string &traceFile);
   ~Trace();
 
 public:
-  static void start(const std::string& traceFile);
+  static void start(const std::string &traceFile);
   static void end();
   void writeEvent(std::string eventName, uint64_t start, uint64_t end);
 
@@ -31,7 +31,7 @@ public:
     [[nodiscard]] uint64_t getTimestamp() const;
 
   public:
-    explicit TraceTimer(const std::string& name);
+    explicit TraceTimer(const std::string &name);
     ~TraceTimer();
   };
 };

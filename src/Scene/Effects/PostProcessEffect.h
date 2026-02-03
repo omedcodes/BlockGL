@@ -1,9 +1,9 @@
 #pragma once
 
 #include "../../AssetManager/AssetManager.h"
+#include "../../BlockGL.h"
 #include "../../Rendering/FrameBuffer.h"
 #include "../../Rendering/ShaderProgram.h"
-#include "../../glCraft.h"
 
 class PostProcessEffect {
 protected:
@@ -12,7 +12,7 @@ protected:
   Ref<Framebuffer> framebuffer;
 
 public:
-  explicit PostProcessEffect(const Ref<const ShaderProgram>& shader, bool enabled = false);
+  explicit PostProcessEffect(const Ref<const ShaderProgram> &shader, bool enabled = false);
 
   Ref<const ShaderProgram> getShader() { return shader; };
 

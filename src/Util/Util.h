@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../glCraft.h"
+#include "../BlockGL.h"
 
 class Util {
   Util() = default;
@@ -8,7 +8,7 @@ class Util {
 public:
   class HashVec2 {
   public:
-    size_t operator()(const glm::ivec2& coord) const noexcept {
+    size_t operator()(const glm::ivec2 &coord) const noexcept {
       size_t hash = coord.x;
       hash ^= coord.y + 0x9e3779b9 + (hash << 6) + (hash >> 2);
       return hash;
@@ -16,7 +16,7 @@ public:
   };
   class HashVec3 {
   public:
-    size_t operator()(const glm::ivec3& coord) const noexcept {
+    size_t operator()(const glm::ivec3 &coord) const noexcept {
       size_t hash = coord.x;
       hash ^= coord.y + 0x9e3779b9 + (hash << 6) + (hash >> 2);
       hash ^= coord.z + 0x9e3779b9 + (hash << 6) + (hash >> 2);
@@ -26,7 +26,7 @@ public:
 
   class CompareIVec3 {
   public:
-    int operator()(const glm::ivec3& lhs, const glm::ivec3& rhs) const {
+    int operator()(const glm::ivec3 &lhs, const glm::ivec3 &rhs) const {
       if (lhs.x < rhs.x)
         return true;
       if (lhs.x == rhs.x) {
@@ -42,6 +42,6 @@ public:
     }
   };
 
-  static Ref<std::string> readBinaryFile(const std::string& path);
+  static Ref<std::string> readBinaryFile(const std::string &path);
   static int32_t positiveMod(int32_t num, int32_t divisor);
 };

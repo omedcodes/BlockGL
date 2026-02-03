@@ -1,7 +1,7 @@
 #pragma once
 
+#include "../BlockGL.h"
 #include "../Util/Random.h"
-#include "../glCraft.h"
 
 struct ParticleDescription {
   glm::vec3 position{0, 0, 0};
@@ -37,7 +37,7 @@ public:
 
   void update(float deltaTime);
   virtual void render(glm::mat4 MVP) = 0;
-  void emit(const ParticleDescription& particle);
+  void emit(const ParticleDescription &particle);
 
   virtual ~ParticleSystem() = default;
 };

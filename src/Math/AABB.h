@@ -1,18 +1,18 @@
 #pragma once
 
-#include "../glCraft.h"
+#include "../BlockGL.h"
 
 struct AABB {
   glm::vec3 minPoint;
   glm::vec3 maxPoint;
 
-  explicit constexpr AABB(const glm::vec3& minPoint, const glm::vec3& maxPoint)
+  explicit constexpr AABB(const glm::vec3 &minPoint, const glm::vec3 &maxPoint)
       : minPoint(minPoint),
         maxPoint(maxPoint) {}
 
-  static AABB fromBlockPosition(const glm::vec3& position) { return AABB(position, position + glm::vec3{1, 1, 1}); }
+  static AABB fromBlockPosition(const glm::vec3 &position) { return AABB(position, position + glm::vec3{1, 1, 1}); }
 
-  [[nodiscard]] bool intersect(const AABB& aabb) const {
+  [[nodiscard]] bool intersect(const AABB &aabb) const {
     return (getMinX() <= aabb.getMaxX() && getMaxX() >= aabb.getMinX()) &&
            (getMinY() <= aabb.getMaxY() && getMaxY() >= aabb.getMinY()) &&
            (getMinZ() <= aabb.getMaxZ() && getMaxZ() >= aabb.getMinZ());

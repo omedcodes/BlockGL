@@ -1,6 +1,6 @@
 #include "Application/Application.h"
+#include "BlockGL.h"
 #include "Performance/Trace.h"
-#include "glCraft.h"
 
 int main(int argc, char **argv) {
   START_TRACE("startup.json");

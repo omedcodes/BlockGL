@@ -1,7 +1,7 @@
 #pragma once
 
+#include "../BlockGL.h"
 #include "../World/World.h"
-#include "../glCraft.h"
 
 struct HitTarget {
   glm::vec3 position;
@@ -15,7 +15,7 @@ class WorldRayCast {
   HitTarget hitTarget;
 
 public:
-  WorldRayCast(glm::vec3 position, glm::vec3 direction, World& world, float reach);
+  WorldRayCast(glm::vec3 position, glm::vec3 direction, World &world, float reach);
 
   [[nodiscard]] bool hasHit() const { return successful; };
   [[nodiscard]] HitTarget getHitTarget() const { return hitTarget; };

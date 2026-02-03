@@ -2,12 +2,12 @@
 
 #include <utility>
 
+#include "../BlockGL.h"
 #include "../Persistence/Persistence.h"
 #include "../Rendering/ShaderProgram.h"
 #include "../Rendering/Texture.h"
 #include "../Rendering/VertexArray.h"
 #include "../World/World.h"
-#include "../glCraft.h"
 #include "BlockOutline.h"
 #include "Effects/CrosshairEffect.h"
 #include "Effects/GammaCorrectionEffect.h"
@@ -29,9 +29,10 @@ class Scene {
   float deltaTime = 1.0f;
   BlockOutline outline{std::make_shared<CubeMesh>()};
   std::vector<Ref<PostProcessEffect>> postProcessingEffects = {
-     std::make_shared<CrosshairEffect>(true), std::make_shared<VignetteEffect>(true),
+     std::make_shared<CrosshairEffect>(true),
+     std::make_shared<VignetteEffect>(true),
      std::make_shared<GammaCorrectionEffect>(true),
-    };
+  };
 
   bool isMenuOpen = false;
   bool showIntermediateTextures = false;
@@ -40,7 +41,7 @@ class Scene {
   void updateMouse();
 
 public:
-  explicit Scene(const std::string& savePath);
+  explicit Scene(const std::string &savePath);
 
   void update(float deltaTime);
 

@@ -1,7 +1,7 @@
 #pragma once
 
+#include "../BlockGL.h"
 #include "../World/BlockData.h"
-#include "../glCraft.h"
 #include "VertexArray.h"
 
 /**
@@ -24,11 +24,11 @@ private:
 
 public:
   BlockVertex() = default;
-  BlockVertex(const glm::ivec3& position, const glm::bvec2& uv);
+  BlockVertex(const glm::ivec3 &position, const glm::bvec2 &uv);
 
   void offset(uint32_t x, uint32_t y, uint32_t z);
   void setAnimated();
-  void setType(const glm::ivec3& offset, BlockData::BlockType type);
+  void setType(const glm::ivec3 &offset, BlockData::BlockType type);
   [[nodiscard]] glm::ivec3 getPosition() const;
 
   static std::vector<VertexAttribute> vertexAttributes() { return {VertexAttribute(1, VertexAttribute::UInt, 0)}; }

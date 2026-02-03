@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../glCraft.h"
+#include "../BlockGL.h"
 
 struct MovementDirection {
   bool isMoving = false;
@@ -24,23 +24,23 @@ class Camera {
   float pitch = 0.5;
 
   glm::mat4 calcView() const;
-  const glm::mat4& updateView();
+  const glm::mat4 &updateView();
 
 
 public:
-  const glm::mat4& lookAt(glm::vec3 eye, glm::vec3 center);
+  const glm::mat4 &lookAt(glm::vec3 eye, glm::vec3 center);
 
   void updateCameraDirection(glm::vec3 newForward);
   void updateCameraOrientation(float yaw, float pitch);
 
-  [[nodiscard]] const glm::mat4& getViewMatrix() const { return view; }
+  [[nodiscard]] const glm::mat4 &getViewMatrix() const { return view; }
 
   [[nodiscard]] float getYaw() const { return yaw; };
   [[nodiscard]] float getPitch() const { return pitch; };
 
   [[nodiscard]] glm::vec3 getLookDirection() const;
   [[nodiscard]] glm::vec3 getPosition() const;
-  const glm::mat4& setPosition(glm::vec3 eye);
+  const glm::mat4 &setPosition(glm::vec3 eye);
 
   void setIsMovingForward(bool isMoving) { forward.isMoving = isMoving; };
   void setIsMovingBackward(bool isMoving) { backward.isMoving = isMoving; };

@@ -1,12 +1,12 @@
 #pragma once
 
+#include "../BlockGL.h"
 #include "../Rendering/FramebufferStack.h"
-#include "../glCraft.h"
 
 class Window {
   static Window *instancePtr;
 
-  const char *name = "glCraft";
+  const char *name = "BlockGL";
   int32_t windowWidth = 1200;
   int32_t windowHeight = 900;
   GLFWwindow *window = nullptr;
