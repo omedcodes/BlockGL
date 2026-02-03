@@ -1,5 +1,10 @@
+/**
+* AudioManager.cpp isnt in Use anymore if you do want to work with sounds in this BlockGL then
+* Consider uncommenting this file and implement the following functions into the Voxel Engine.
+*/
+
+/*
 #include "AudioManager.h"
-// #include <iostream>
 
 AudioManager* AudioManager::instancePtr = nullptr;
 
@@ -67,3 +72,4 @@ void AudioManager::playSound(const std::string& filePath) {
     alSourcePlay(source);
     sources.push_back(source);
 }
+*/

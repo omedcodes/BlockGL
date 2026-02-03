@@ -1,3 +1,4 @@
+/*
 #pragma once
 
 #include "../BlockGL.h"
@@ -44,3 +45,4 @@ public:
   Application &operator=(Application &) = delete;
   Application &operator=(Application &&) noexcept = delete;
 };
+*/
