@@ -110,37 +110,36 @@ void World::rebuildChunks(const Ref<ChunkIndexVector>& chunkIndices, const Frust
   }
 }
 
-void World::renderOpaque(glm::mat4 transform, glm::vec3 playerPos, const Frustum& frustum) {
+void World::renderOpaque(glm::mat4 transform,
+                         glm::vec3 playerPos,
+                         const Frustum& frustum) {
   TRACE_FUNCTION();
+
   static auto sortedChunkIndices = std::make_shared<ChunkIndexVector>();
   sortChunkIndices(playerPos, sortedChunkIndices);
   rebuildChunks(sortedChunkIndices, frustum);
-
+  
+  // animation offset for water and lava
   const int32_t animationProgress = static_cast<int32_t>(textureAnimation) % 5;
-
-  // animation offsets for water and lava
   const static int32_t animationOffsets[] = {0, 1, 2, 17, 18};
-
   const int32_t animationOffset = animationOffsets[animationProgress];
 
   opaqueShader->setUInt("textureAnimation", animationOffset);
-  glEnable(GL_BLEND);
-  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-  for (const auto& index: *sortedChunkIndices) {
+  glDisable(GL_BLEND);
+
+  for (const auto& index : *sortedChunkIndices) {
     const auto& chunk = chunks[index.first];
     chunk->setShader(opaqueShader);
     chunk->setUseAmbientOcclusion(useAmbientOcclusion);
     chunk->renderOpaque(transform, frustum);
-    chunk->renderSemiTransparent(transform, frustum);
   }
 
-  for (const auto& behavior: behaviors) {
+  for (const auto& behavior : behaviors) {
     behavior->renderOpaque(transform, playerPos, frustum);
   }
-
-  glDisable(GL_BLEND);
 }
+
 
 /// implemented this paper: https://jcgt.org/published/0002/02/09/
 void World::renderTransparent(glm::mat4 transform,
@@ -150,25 +149,26 @@ void World::renderTransparent(glm::mat4 transform,
                               float zFar,
                               const Ref<Framebuffer>& opaqueRender) {
   TRACE_FUNCTION();
+
   auto width = opaqueRender->getWidth();
   auto height = opaqueRender->getHeight();
+
   static Ref<Framebuffer> framebuffer = nullptr;
-  if (framebuffer == nullptr || framebuffer->getWidth() != width || framebuffer->getHeight() != height) {
+  if (!framebuffer || framebuffer->getWidth() != width || framebuffer->getHeight() != height) {
     framebuffer = std::make_shared<Framebuffer>(width, height, false, 2);
   }
+
   static auto sortedChunkIndices = std::make_shared<ChunkIndexVector>();
   sortChunkIndices(playerPos, sortedChunkIndices);
   rebuildChunks(sortedChunkIndices, frustum);
 
   const int32_t animationProgress = static_cast<int32_t>(textureAnimation) % 5;
-
-  // animation offsets for water and lava
   const static int32_t animationOffsets[] = {0, 1, 2, 17, 18};
   const int32_t animationOffset = animationOffsets[animationProgress];
-  auto& window = Window::instance();
-  window.getFramebufferStack()->push(framebuffer);
-  glEnable(GL_BLEND);
 
+  Window::instance().getFramebufferStack()->push(framebuffer);
+
+  glEnable(GL_BLEND);
   glBlendFunci(0, GL_ONE, GL_ONE);
   glBlendFunci(1, GL_ZERO, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -182,21 +182,25 @@ void World::renderTransparent(glm::mat4 transform,
   transparentShader->setTexture("opaqueDepth", opaqueRender->getDepthAttachment(), 1);
   transparentShader->bind();
 
-  for (const auto& [key, chunk]: chunks) {
+  for (const auto& [_, chunk] : chunks) {
     chunk->setShader(transparentShader);
     chunk->setUseAmbientOcclusion(useAmbientOcclusion);
     chunk->renderSemiTransparent(transform, frustum);
   }
+
   Window::instance().getFramebufferStack()->pop();
 
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
   ColorRenderPass renderPass(blendShader);
   renderPass.setTexture("accumTexture", framebuffer->getColorAttachment(0), 1);
   renderPass.setTexture("revealageTexture", framebuffer->getColorAttachment(1), 2);
   renderPass.setTexture("opaqueTexture", opaqueRender->getColorAttachment(0), 3);
   renderPass.render();
+
   glDisable(GL_BLEND);
 }
+
 
 const BlockData* World::getBlockAt(glm::ivec3 position) {
   return getChunk(getChunkIndex(position))->getBlockAt(Chunk::toChunkCoordinates(position));
