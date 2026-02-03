@@ -31,17 +31,17 @@ add_executable(BlockGL ${BlockGLSources})
 
 target_precompile_headers(BlockGL PRIVATE src/BlockGL.h)
 
-add_subdirectory(third_party/glfw EXCLUDE_FROM_ALL)
+add_subdirectory(include/glfw EXCLUDE_FROM_ALL)
 
-add_subdirectory(third_party/GLAD EXCLUDE_FROM_ALL)
+add_subdirectory(include/GLAD EXCLUDE_FROM_ALL)
 
-add_subdirectory(third_party/glm EXCLUDE_FROM_ALL)
+add_subdirectory(include/glm EXCLUDE_FROM_ALL)
 
-include_directories(BlockGL third_party/FastNoiseLite)
-include_directories(BlockGL third_party/FrustumCulling)
+include_directories(BlockGL include/FastNoiseLite)
+include_directories(BlockGL include/FrustumCulling)
 
-add_library(lodepng EXCLUDE_FROM_ALL third_party/lodepng/lodepng.h third_party/lodepng/lodepng.cpp)
-include_directories(lodepng third_party/lodepng)
+add_library(lodepng EXCLUDE_FROM_ALL include/lodepng/lodepng.h include/lodepng/lodepng.cpp)
+include_directories(lodepng include/lodepng)
 
 find_package(OpenAL REQUIRED)
 find_package(SndFile REQUIRED)

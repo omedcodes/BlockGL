@@ -49,7 +49,6 @@ fabric.properties
 *.iml
 out
 gen
-/third_party
 .clang-format
 .gitmodules
 /build

@@ -184,8 +184,8 @@ void GLAPIENTRY Window::onOpenGlMessage(GLenum source,
     case GL_DEBUG_SOURCE_SHADER_COMPILER:
       std::cerr << "Source: Shader Compiler";
       break;
-    case GL_DEBUG_SOURCE_THIRD_PARTY:
-      std::cerr << "Source: Third Party";
+    case GL_DEBUG_SOURCE_INCLUDE:
+      std::cerr << "Source: Includes";
       break;
     case GL_DEBUG_SOURCE_APPLICATION:
       std::cerr << "Source: Application";
