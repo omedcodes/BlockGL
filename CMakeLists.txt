@@ -44,8 +44,8 @@ add_library(lodepng EXCLUDE_FROM_ALL third_party/lodepng/lodepng.h third_party/l
 include_directories(lodepng third_party/lodepng)
 
 find_package(OpenAL REQUIRED)
-
-target_link_libraries(BlockGL PRIVATE glfw glm glad lodepng OpenAL::OpenAL)
+find_package(SndFile REQUIRED)
+target_link_libraries(BlockGL PRIVATE glfw glm glad lodepng OpenAL::OpenAL sndfile::sndfile)
 
 add_custom_command(
         TARGET BlockGL PRE_BUILD COMMAND
