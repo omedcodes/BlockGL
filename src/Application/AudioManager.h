@@ -1,3 +1,4 @@
+/*
 #pragma once
 
 #include "../BlockGL.h"
@@ -37,3 +38,4 @@ public:
     AudioManager &operator=(const AudioManager &) = delete;
     AudioManager &operator=(AudioManager &&) noexcept = delete;
 };
+*/
