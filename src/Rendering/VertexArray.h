@@ -29,6 +29,7 @@ struct VertexAttribute {
 };
 
 class VertexArray {
+private:
   uint32_t id = 0;
   Ref<VertexBuffer> vertexBuffer;
   Ref<IndexBuffer> indexBuffer;

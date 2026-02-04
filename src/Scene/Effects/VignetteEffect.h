@@ -3,6 +3,7 @@
 #include "PostProcessEffect.h"
 
 class VignetteEffect : public PostProcessEffect {
+private:
   float vignetteIntensity = 2.9f;
   float vignetteStart = 2.0f;
 

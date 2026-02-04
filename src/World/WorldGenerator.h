@@ -4,6 +4,7 @@
 #include "Chunk.h"
 
 class WorldGenerator {
+private:
   int32_t seed;
   FastNoiseLite noise;
 

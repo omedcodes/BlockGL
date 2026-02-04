@@ -4,6 +4,7 @@
 #include "ShaderProgram.h"
 
 class ColorRenderPass {
+private:
   Ref<const ShaderProgram> shader;
 
 public:

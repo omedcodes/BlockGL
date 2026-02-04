@@ -6,6 +6,7 @@
 #include "../World/Chunk.h"
 
 class Persistence {
+private:
   std::string path;
   Camera camera;
   std::unordered_map<glm::ivec2, Ref<Chunk>, Util::HashVec2> chunks;

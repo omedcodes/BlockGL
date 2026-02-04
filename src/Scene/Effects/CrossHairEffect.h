@@ -4,6 +4,7 @@
 #include "PostProcessEffect.h"
 
 class CrosshairEffect : public PostProcessEffect {
+private:
   float crosshairSize = 0.015f;
   float crosshairVerticalWidth = 0.2f;
   float crosshairHorizontalWidth = 0.15f;

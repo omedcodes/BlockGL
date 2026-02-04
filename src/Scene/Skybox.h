@@ -5,6 +5,7 @@
 #include "../Rendering/VertexArray.h"
 
 class Skybox {
+private:
   glm::mat4 transform{1};
   VertexArray vertexArray{
      std::vector<glm::vec3>{

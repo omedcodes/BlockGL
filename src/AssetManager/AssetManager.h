@@ -13,6 +13,7 @@
 #include "TextureRegistry.h"
 
 class AssetManager {
+private:
   static AssetManager *instancePtr;
 
   TextRegistry textRegistry;

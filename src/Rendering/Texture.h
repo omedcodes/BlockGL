@@ -4,6 +4,7 @@
 #include "Image.h"
 
 class Texture {
+private:
   uint32_t id = 0;
   uint32_t target;
   int32_t internalFormat;

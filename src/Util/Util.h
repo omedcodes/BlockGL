@@ -3,6 +3,7 @@
 #include "../BlockGL.h"
 
 class Util {
+private:
   Util() = default;
 
 public:

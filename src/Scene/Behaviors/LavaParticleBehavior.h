@@ -4,6 +4,7 @@
 #include "../CubeMesh.h"
 
 class LavaParticleSystem : public ParticleSystem {
+private:
   CubeMesh cubeMesh{};
   Ref<const ShaderProgram> cubeShader;
 
@@ -13,6 +14,7 @@ public:
 };
 
 class LavaParticleBehavior : public WorldBehavior {
+private:
   Random random;
   std::set<glm::ivec3, Util::CompareIVec3> surfaceLavaPositions{};
   LavaParticleSystem particleSystem;

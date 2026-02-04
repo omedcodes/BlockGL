@@ -3,6 +3,7 @@
 #include "PostProcessEffect.h"
 
 class GammaCorrectionEffect : public PostProcessEffect {
+private:
   float power = 0.85f;
 
 public:

@@ -5,6 +5,7 @@
 
 template<typename T>
 class AssetRegistry {
+private:
   std::unordered_map<std::string, WeakRef<const T>> registry;
   virtual Ref<const T> loadAsset(const std::string &name) = 0;
 

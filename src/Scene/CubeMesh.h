@@ -3,6 +3,7 @@
 #include "../Rendering/VertexArray.h"
 
 class CubeMesh {
+private:
   Ref<VertexArray> cubeVertexArray;
 
 public:

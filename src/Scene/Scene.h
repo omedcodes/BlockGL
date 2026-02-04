@@ -17,6 +17,7 @@
 #include "Skybox.h"
 
 class Scene {
+private:
   Ref<Persistence> persistence;
   Ref<World> world;
 

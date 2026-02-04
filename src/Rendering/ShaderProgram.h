@@ -5,6 +5,7 @@
 #include "Texture.h"
 
 class ShaderProgram {
+private:
   uint32_t shaderProgram = 0;
 
   [[nodiscard]] int32_t getUniformLocation(const std::string &location) const;

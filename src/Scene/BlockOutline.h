@@ -4,6 +4,7 @@
 #include "CubeMesh.h"
 
 class BlockOutline {
+private:
   Ref<const ShaderProgram> outlinedBlockShader;
   Ref<const CubeMesh> blockMesh;
 

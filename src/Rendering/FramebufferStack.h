@@ -4,6 +4,7 @@
 #include "FrameBuffer.h"
 
 class FramebufferStack {
+private:  
   std::vector<Ref<Framebuffer>> stack;
   std::vector<Ref<Texture>> intermediateTextures;
   bool keepIntermediateTextures = false;

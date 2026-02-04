@@ -6,8 +6,8 @@
 #include "Camera.h"
 
 class Player {
+private:
   // The player is 0.6 blocks wide and 1.8 blocks tall, the eyes are approximately 0.3 units from the top
-
 
   Camera camera;
 

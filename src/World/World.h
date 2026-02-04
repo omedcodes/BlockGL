@@ -13,6 +13,7 @@
 
 class Framebuffer;
 class World {
+private:
   std::unordered_map<glm::ivec2, Ref<Chunk>, Util::HashVec2> chunks;
   std::vector<Ref<WorldBehavior>> behaviors;
   using ChunkIndexVector = std::vector<std::pair<glm::vec2, float>>;

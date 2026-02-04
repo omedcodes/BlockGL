@@ -11,6 +11,7 @@ struct HitTarget {
 };
 
 class WorldRayCast {
+private:
   bool successful;
   HitTarget hitTarget;
 

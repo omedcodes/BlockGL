@@ -3,6 +3,7 @@
 #include "../BlockGL.h"
 
 class AxisPlane {
+private:
   glm::vec3 planeNormal;
 
   float offsetDirection;

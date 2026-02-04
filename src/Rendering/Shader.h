@@ -3,6 +3,7 @@
 #include "../BlockGL.h"
 
 class Shader {
+private:
   uint32_t id;
 
 public:

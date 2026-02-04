@@ -4,6 +4,7 @@
 #include "Texture.h"
 
 class Framebuffer {
+private:
   uint32_t id = 0;
 
   std::vector<Ref<Texture>> attachments;
