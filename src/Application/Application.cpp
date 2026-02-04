@@ -40,12 +40,6 @@ void Application::updateAndRender() {
     window.beginFrame();
     scene->render();
     window.finalizeFrame();
-
-    /**
-     * @note call scene->renderGui() on future implemented GUI system
-     * @note The old system used ImGui which i did remove
-     *  scene->renderGui();
-    */
     window.swapBuffers();
   }
 }

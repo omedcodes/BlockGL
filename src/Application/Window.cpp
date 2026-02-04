@@ -44,7 +44,7 @@ Window::~Window() {
 }
 
 void Window::onWindowError(int32_t errorCode, const char *description) {
-  std::cerr << "GLFW: **ERROR** error=" << errorCode << " description=" << description << std::endl;
+  std::cerr << "GLFW " << errorCode << " desc " << description << std::endl;
 }
 
 void Window::onKeyEvent(GLFWwindow *, int32_t key, int32_t scancode, int32_t action, int32_t mode) {
@@ -101,7 +101,7 @@ void Window::setupCallbacks() {
 bool Window::setupGlad() {
   TRACE_FUNCTION();
   if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
-    std::cerr << "Failed to initialize OpenGL context" << std::endl;
+    std::cerr << "failed to init OpenGL context" << std::endl;
     return false;
   }
 
@@ -178,80 +178,4 @@ void GLAPIENTRY Window::onOpenGlMessage(GLenum source,
   if (id == 131185 || id == 131218 || id == 131169 || id == 131076 || id == 131204) {
     return;
   }
-
-  std::cerr << "---------------" << std::endl;
-  std::cerr << "Debug message (" << id << "): " << message << std::endl;
-
-  switch (source) {
-    case GL_DEBUG_SOURCE_API:
-      std::cerr << "Source: API";
-      break;
-    case GL_DEBUG_SOURCE_WINDOW_SYSTEM:
-      std::cerr << "Source: Window System";
-      break;
-    case GL_DEBUG_SOURCE_SHADER_COMPILER:
-      std::cerr << "Source: Shader Compiler";
-      break;
-    case GL_DEBUG_SOURCE_APPLICATION:
-      std::cerr << "Source: Application";
-      break;
-    case GL_DEBUG_SOURCE_OTHER:
-      std::cerr << "Source: Other";
-      break;
-    default:
-      break;
-  }
-  std::cerr << std::endl;
-
-  switch (type) {
-    case GL_DEBUG_TYPE_ERROR:
-      std::cerr << "Type: Error";
-      break;
-    case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR:
-      std::cerr << "Type: Deprecated Behaviour";
-      break;
-    case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR:
-      std::cerr << "Type: Undefined Behaviour";
-      break;
-    case GL_DEBUG_TYPE_PORTABILITY:
-      std::cerr << "Type: Portability";
-      break;
-    case GL_DEBUG_TYPE_PERFORMANCE:
-      std::cerr << "Type: Performance";
-      break;
-    case GL_DEBUG_TYPE_MARKER:
-      std::cerr << "Type: Marker";
-      break;
-    case GL_DEBUG_TYPE_PUSH_GROUP:
-      std::cerr << "Type: Push Group";
-      break;
-    case GL_DEBUG_TYPE_POP_GROUP:
-      std::cerr << "Type: Pop Group";
-      break;
-    case GL_DEBUG_TYPE_OTHER:
-      std::cerr << "Type: Other";
-      break;
-    default:
-      break;
-  }
-  std::cerr << std::endl;
-
-  switch (severity) {
-    case GL_DEBUG_SEVERITY_HIGH:
-      std::cerr << "Severity: high";
-      break;
-    case GL_DEBUG_SEVERITY_MEDIUM:
-      std::cerr << "Severity: medium";
-      break;
-    case GL_DEBUG_SEVERITY_LOW:
-      std::cerr << "Severity: low";
-      break;
-    case GL_DEBUG_SEVERITY_NOTIFICATION:
-      std::cerr << "Severity: notification";
-      break;
-    default:
-      break;
-  }
-  std::cerr << std::endl;
-  std::cerr << std::endl;
 }

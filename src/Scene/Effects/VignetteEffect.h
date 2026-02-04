@@ -18,18 +18,5 @@ public:
     shader->setFloat("start", vignetteStart);
   }
 
-  void renderGui() override {
-/*
-    ImGui::Checkbox("Enable vignette effect", &enabled);
-
-    if (enabled) {
-      float invertedIntensity = 4.0f - vignetteIntensity;
-      if (ImGui::SliderFloat("Vignette intensity", &invertedIntensity, 1.0f, 3.0f)) {
-        vignetteIntensity = 4.0f - invertedIntensity;
-      }
-
-      ImGui::SliderFloat("Vignette start", &vignetteStart, 0.0f, 3.0f);
-    }
-*/
-  }
+  void renderGui() override {}
 };
