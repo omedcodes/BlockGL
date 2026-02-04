@@ -52,4 +52,4 @@ gen
 .clang-format
 .gitmodules
 /build
-/archive
+include/glm/doc/api

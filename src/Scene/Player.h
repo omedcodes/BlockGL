@@ -13,7 +13,22 @@ class Player {
 
   Ref<World> world;
   Ref<Persistence> persistence;
-  BlockData::BlockType blockToPlace = BlockData::BlockType::grass;
+
+  static constexpr int HotbarSize = 9;
+  BlockData::BlockType blockToPlace = BlockData::BlockType::grass; // this variable holds current chosen block default=grass
+
+  std::array<BlockData::BlockType, HotbarSize> hotbar = {
+      BlockData::BlockType::grass,
+      BlockData::BlockType::dirt,
+      BlockData::BlockType::stone,
+      BlockData::BlockType::sand,
+      BlockData::BlockType::planks,
+      BlockData::BlockType::cobblestone,
+      BlockData::BlockType::oak_wood,
+      BlockData::BlockType::glass,
+      BlockData::BlockType::oak_leaves
+  };
+  int selectedHotbarSlot = 0;
 
   glm::vec3 gravity{0};
 

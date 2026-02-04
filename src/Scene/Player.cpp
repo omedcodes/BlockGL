@@ -5,7 +5,9 @@
 Player::Player(const Ref<World>& world, const Ref<Persistence>& persistence)
     : camera(persistence->getCamera()),
       persistence(persistence),
-      world(world) {}
+      world(world) {
+        blockToPlace = hotbar[selectedHotbarSlot];
+      }
 
 Player::~Player() {
   persistence->commitCamera(camera);
@@ -82,6 +84,9 @@ void Player::onKeyEvent(int32_t key, int32_t, int32_t action, int32_t) {
     }
   } else if (key == GLFW_KEY_LEFT_CONTROL || key == GLFW_KEY_RIGHT_CONTROL) {
     isRunning = isButtonPressed;
+  } else if (key >= GLFW_KEY_1 && key <= GLFW_KEY_9 && action == GLFW_PRESS) {
+    selectedHotbarSlot = key - GLFW_KEY_1; // hotbar is from 0–8
+    blockToPlace = hotbar[selectedHotbarSlot];
   }
 }
 
