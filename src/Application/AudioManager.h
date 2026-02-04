@@ -9,6 +9,7 @@
 #include <vector>
 
 class AudioManager {
+private:
     static AudioManager *instancePtr;
 
     ALCdevice* device = nullptr;

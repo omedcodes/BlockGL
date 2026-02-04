@@ -4,6 +4,7 @@
 #include "../Rendering/FramebufferStack.h"
 
 class Window {
+private:
   static Window *instancePtr;
 
   const char *name = "BlockGL";
