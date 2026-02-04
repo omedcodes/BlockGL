@@ -15,7 +15,7 @@ World::World(const Ref<Persistence>& persistence, std::vector<Ref<WorldBehavior>
   opaqueShader = AssetManager::instance().loadShaderProgram("assets/shaders/world_opaque");
   transparentShader = AssetManager::instance().loadShaderProgram("assets/shaders/world_transparent");
   blendShader = AssetManager::instance().loadShaderProgram("assets/shaders/world_blend");
-  setTextureAtlas(AssetManager::instance().loadTextureArray("assets/textures/default_texture.png"));
+  setTextureAtlas(AssetManager::instance().loadTextureArray("assets/textures/atlas_texture.png"));
 }
 
 Ref<Chunk> World::generateOrLoadChunk(glm::ivec2 position) {
