@@ -83,7 +83,9 @@ void Window::setupCallbacks() {
   glfwSetMouseButtonCallback(window, onMouseButtonEvent);
   glfwSetCursorPosCallback(window, onCursorPosition);
   glfwSetFramebufferSizeCallback(window, onResized);
-
+  glfwSetScrollCallback(window,
+      [](GLFWwindow*, double, double yOffset) { Application::instance().onScrollEvent(yOffset); }
+  );
 #ifndef BUILD_TYPE_DIST
   glEnable(GL_DEBUG_OUTPUT);
   glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
@@ -91,10 +93,10 @@ void Window::setupCallbacks() {
   glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
 #endif
   glfwSwapInterval(1);
-
   glfwSetWindowRefreshCallback(window, onRefreshWindow);
   glfwSetErrorCallback(Window::onWindowError);
 }
+
 
 bool Window::setupGlad() {
   TRACE_FUNCTION();

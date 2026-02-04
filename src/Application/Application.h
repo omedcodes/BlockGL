@@ -20,6 +20,7 @@ private:
   void onMouseButtonEvent(int32_t button, int32_t action, int32_t mods);
   void onCursorPositionEvent(double x, double y);
   void onResized(int32_t width, int32_t height);
+  void onScrollEvent(double yOffset);
 
   void onRefreshWindow();
   void updateAndRender();

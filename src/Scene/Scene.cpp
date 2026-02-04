@@ -263,3 +263,10 @@ void Scene::onCursorPositionEvent(double x, double y) {
     player.onCursorPositionEvent(x, y);
   }
 }
+
+void Scene::onScrollEvent(double yOffset) {
+  TRACE_FUNCTION();
+  if (!isMenuOpen) {
+    player.onScrollEvent(yOffset);
+  }
+}

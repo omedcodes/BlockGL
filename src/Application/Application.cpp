@@ -74,3 +74,8 @@ void Application::onCursorPositionEvent(double x, double y) {
   TRACE_FUNCTION();
   scene->onCursorPositionEvent(x, y);
 }
+
+void Application::onScrollEvent(double yOffset) {
+  TRACE_FUNCTION();
+  scene->onScrollEvent(yOffset);
+}

@@ -132,3 +132,18 @@ void Player::onCursorPositionEvent(double x, double y) {
 void Player::resetMousePosition() {
   shouldResetMouse = true;
 }
+
+void Player::onScrollEvent(double yOffset) {
+    if (yOffset > 0)
+        selectedHotbarSlot--;
+    else if (yOffset < 0)
+        selectedHotbarSlot++;
+
+    if (selectedHotbarSlot < 0)
+        selectedHotbarSlot = HotbarSize - 1;
+    else if (selectedHotbarSlot >= HotbarSize)
+        selectedHotbarSlot = 0;
+  
+    blockToPlace = hotbar[selectedHotbarSlot];
+}
+
