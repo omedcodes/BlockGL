@@ -43,8 +43,6 @@ include_directories(BlockGL include/FrustumCulling)
 add_library(lodepng EXCLUDE_FROM_ALL include/lodepng/lodepng.h include/lodepng/lodepng.cpp)
 include_directories(lodepng include/lodepng)
 
-find_package(OpenAL REQUIRED)
-find_package(SndFile REQUIRED)
 target_link_libraries(BlockGL PRIVATE glfw glm glad lodepng)
 
 add_custom_command(
